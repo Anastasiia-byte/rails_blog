@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_14_215230) do
+ActiveRecord::Schema.define(version: 2021_05_15_170920) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -62,6 +62,15 @@ ActiveRecord::Schema.define(version: 2021_05_14_215230) do
     t.index ["reset_password_token"], name: "index_authors_on_reset_password_token", unique: true
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.string "commenter"
+    t.text "body"
+    t.integer "post_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id"], name: "index_comments_on_post_id"
+  end
+
   create_table "elements", force: :cascade do |t|
     t.string "element_type"
     t.integer "post_id", null: false
@@ -84,6 +93,7 @@ ActiveRecord::Schema.define(version: 2021_05_14_215230) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "comments", "posts"
   add_foreign_key "elements", "posts"
   add_foreign_key "posts", "authors"
 end

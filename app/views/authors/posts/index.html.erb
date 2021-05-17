@@ -15,22 +15,27 @@
             <% end %>
           </div>
           <div class="col-md-9">
-            <span class='badge badge-warning mb-2'>
               <% if post.published? %>
-                Published
+                <span class='badge badge-warning mb-4'>Published</span>
               <% else %>
-                  Unpublished
+                <span class='badge badge-secondary mb-4'>Unpublished</span>
               <% end %>
-            </span>
             <h5 class="card-title mb-2 text-dark"><%= post.title %></h5>
             <p class="card-text text-secondary mb-0"><%= post.description%></p>
           </div>
         </div>
         
       </div>
+      <%= link_to 'Destroy', posts_path(post), method:
+      :destroy, class: 'btn btn-danger', data: {confirm: "Are you sure?"}%>
     </div>
+      
+
   <% end %>
+
+
 <% end %>
+
 
 
 

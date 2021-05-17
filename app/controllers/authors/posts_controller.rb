@@ -24,7 +24,7 @@ module Authors
   
       if @post.save
         redirect_to edit_post_path(@post)
-        render :new
+        return
       end
     end
   
@@ -39,6 +39,7 @@ module Authors
   
     # DELETE /posts/1
     def destroy
+      @post = Post.find(params[:id])
       @post.destroy
       redirect_to posts_url, notice: 'Post was successfully destroyed.'
     end
@@ -51,7 +52,7 @@ module Authors
   
       # Only allow a list of trusted parameters through.
       def post_params
-        params.require(:post).permit(:title, :description, :header_image, :published)
+        params.permit(:title, :description, :header_image, :published)
       end
   end
 end
