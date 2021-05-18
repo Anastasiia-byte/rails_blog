@@ -26,18 +26,22 @@
         </div>
         
       </div>
-      <%= link_to 'Destroy', posts_path(post), method:
-      :destroy, class: 'btn btn-danger', data: {confirm: "Are you sure?"}%>
+      
     </div>
       
 
   <% end %>
 
+  <%= link_to 'Destroy', posts_path(post), method:
+  :delete, class: 'btn btn-danger', data: {confirm: "Are you sure?"}%>
+
 
 <% end %>
 
 
-
-
-<br>
+<div>
+<%= link_to 'Next Page', posts_path(page: @page + 1) %>
+|
+<%= link_to 'Previous Page', posts_path(page: @page - 1) %>
+</div>
 

@@ -1,10 +1,12 @@
 module Authors
   class PostsController < AuthorsController
+    POSTS_PER_PAGE = 6
     before_action :set_post, only: [:edit, :update, :destroy]
   
     # GET /posts
     def index
-      @posts = current_author.posts
+      @page = params.fetch(:page, 0).to_i
+      @posts = current_author.posts.offset(@page*POSTS_PER_PAGE).limit(POSTS_PER_PAGE)
     end
   
   
@@ -40,7 +42,10 @@ module Authors
     # DELETE /posts/1
     def destroy
       @post = Post.find(params[:id])
-      @post.destroy
+      if @post.present?
+        @post.destroy
+        
+      end
       redirect_to posts_url, notice: 'Post was successfully destroyed.'
     end
   
