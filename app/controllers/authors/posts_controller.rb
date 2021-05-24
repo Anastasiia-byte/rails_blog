@@ -6,7 +6,7 @@ module Authors
     # GET /posts
     def index
       @page = params.fetch(:page, 0).to_i
-      @posts = Post.most_recently_published.paginate(:page => params[:page], :per_page => 2)
+      @posts = current_author.posts.most_recently_published.paginate(:page => params[:page], :per_page => 3)
     end
 
 
@@ -41,7 +41,7 @@ module Authors
   
     # DELETE /posts/1
     def destroy
-      @post = Post.find(params[:id])
+      @post = current_author.posts.find(params[:id])
       if @post.present?
         @post.destroy
         

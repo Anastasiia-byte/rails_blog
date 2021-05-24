@@ -1,14 +1,12 @@
 class Author < ApplicationRecord
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable :registerable,
+  devise :database_authenticatable, 
          :recoverable, :rememberable, :validatable
 
 
-  has_many :posts, :dependent => :destroy
+  has_many :posts
   
-  def username
-    return email.split("@")[0].capitalize
-  end
+  
   
 end

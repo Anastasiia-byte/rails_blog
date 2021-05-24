@@ -4,7 +4,7 @@ module Readers
         def create
             @post = Post.published.find_by_id(params[:post_id])
             @comment = @post.comments.create(comment_params)
-            redirect_to root_path
+            redirect_to blog_post_path(@post)
             
             
         end
@@ -15,7 +15,7 @@ module Readers
             @comment = Comment.find(params[:id])
             @comment.destroy
 
-            redirect_to @post
+            redirect_to blog_post_path(@post)
         end
         private
 

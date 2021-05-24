@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
    
-  devise_for :users
-  #devise_for :authors
+  devise_for :authors
   get 'home/index'
   root to: "readers/home#index"
   
@@ -19,7 +18,11 @@ Rails.application.routes.draw do
       resources :comments 
       
     end
+    
   end
+
+  resources :comments, only: [:index, :create]
+get '/comments/new/(:parent_id)', to: 'comments#new', as: :new_comment
 
 
   

@@ -1,12 +1,13 @@
 <% @comments.each do |c| %>
 
     <% unless !c.persisted? %>
-        <div class='card mt-4'>
+        <div class='card mb-4'>
 
             <div class='card-body'>
+                <h4><%= c.commenter %></h4>
                 <h5><%= c.body %></h5>
                 <br>
-                <%= link_to 'Delete' , post_comment_path(c.post, c.id), method: :delete%>
+                <%= link_to 'Delete' , post_comment_path(c.post, c), method: :delete%>
             </div>
 
 
