@@ -6,4 +6,9 @@ class Author < ApplicationRecord
 
 
   has_many :posts, :dependent => :destroy
+  
+  def username
+    return email.split("@")[0].capitalize
+  end
+  
 end

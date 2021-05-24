@@ -6,10 +6,10 @@ module Authors
     # GET /posts
     def index
       @page = params.fetch(:page, 0).to_i
-      @posts = current_author.posts.offset(@page*POSTS_PER_PAGE).limit(POSTS_PER_PAGE)
+      @posts = Post.most_recently_published.paginate(:page => params[:page], :per_page => 2)
     end
-  
-  
+
+
     # GET /posts/new
     def new
       @post = current_author.posts.build

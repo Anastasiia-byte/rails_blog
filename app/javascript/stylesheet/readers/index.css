@@ -3,6 +3,10 @@
 }
 
 .header-image{
-    height: 195px;
     background-size: cover;
 }
+
+.cross{
+    width: 50px;
+}
+

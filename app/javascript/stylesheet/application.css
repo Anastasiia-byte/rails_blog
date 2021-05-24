@@ -1,7 +1,8 @@
 @import url('trix/dist/trix');
 @import url('./actiontext.scss');
 
-@import url('./readers/post.css');
+@import url('./readers/index.css');
+@import url('./readers/show.css');
 
 .content :hover{
     color:rgba(197, 152, 39, 0.788);
@@ -25,4 +26,16 @@
     list-style: none;
     padding-left: 0;
 }
+
+.page-item.active .page-link{
+    background-color: #ffc107;
+    border-color: #ffc107;
+    color: black
+}
+
+.page-item .page-link{
+    color: #977100
+}
+
+
 

@@ -1,0 +1,16 @@
+<% @comments.each do |c| %>
+
+    <% unless !c.persisted? %>
+        <div class='card mt-4'>
+
+            <div class='card-body'>
+                <h5><%= c.body %></h5>
+                <br>
+                <%= link_to 'Delete' , post_comment_path(c.post, c.id), method: :delete%>
+            </div>
+
+
+                
+        </div>
+    <% end %>
+<% end %>

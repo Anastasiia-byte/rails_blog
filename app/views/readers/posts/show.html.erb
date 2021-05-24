@@ -1,0 +1,31 @@
+<div class='row'>
+    <div class='col-lg-10 offset-lg-1'>
+        <div class="card border-danger mb-3" >
+            <% if @post.header_image.present? %>
+                <div class="header-image" style="background-image: url(<%= url_for(@post.header_image) %>);"></div>
+            <% end %>
+            <div class="card-body p-4 d-flex flex-column">
+                <h1 class="card-title"><%= @post.title %></h5>
+                
+                <% @post.elements.each do |element| %>
+                    
+                        <% if element.image? %>
+                            <%= image_tag(element.image) %>
+                        <% else %>
+                            <%= element.content %>
+                        <% end %>
+                    
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class='row'>
+    <div class='col-lg-10 comment-section'>
+        
+        <%= render 'comments/comment' %>
+        <h5 class='mt-4'>Comments</h5>
+        <%= render 'comments/body' %>
+    <div>
+</div>
