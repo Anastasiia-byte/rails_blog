@@ -18,7 +18,7 @@
 
 <div class='row'>
     
-    <% @post.each do |post| %>
+    <% @posts.each do |post| %>
     <div class='col-md-6 col-lg-4'>
         <div class="card border-danger mb-3 post-card" >
             <% if post.header_image.present? %>
@@ -30,6 +30,7 @@
                     </span>
 
                 <h5 class="card-title"><%= post.title %></h5>
+                <p><%= raw post.tags.map { |t| link_to t.name, posts_path(tag: t.name) }.join(', ') %></p>
                 <p class="card-text"><%= truncate(post.description, length:250) %></p>
                 <%= link_to 'Read Post', blog_post_path(post), class: 'btn btn-warning mt-auto' %>
                
@@ -42,7 +43,7 @@
 </div>
 
 <div class='mt-3 d-flex justify-content-center '>
-  <%= will_paginate @post, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+  <%= will_paginate @posts, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
 </div>
 
 

@@ -6,13 +6,13 @@ module Authors
     # GET /posts
     def index
       @page = params.fetch(:page, 0).to_i
-      @posts = current_author.posts.most_recently_published.paginate(:page => params[:page], :per_page => 3)
+      @posts = Post.most_recently_published.paginate(:page => params[:page], :per_page => 3)
     end
 
 
     # GET /posts/new
     def new
-      @post = current_author.posts.build
+      @post = Post.new
     end
   
     # GET /posts/1/edit
@@ -22,7 +22,7 @@ module Authors
   
     # POST /posts
     def create
-      @post = current_author.posts.build(post_params)
+      @post = current_author.posts.new(post_params)
   
       if @post.save
         redirect_to edit_post_path(@post)
@@ -57,7 +57,7 @@ module Authors
   
       # Only allow a list of trusted parameters through.
       def post_params
-        params.permit(:title, :description, :header_image, :published)
+        params.require(:post).permit(:title, :description, :header_image, :published, :tag_list)
       end
   end
 end

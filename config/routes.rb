@@ -18,11 +18,14 @@ Rails.application.routes.draw do
       resources :comments 
       
     end
+    resources :posts do
+      resources :tags
+      
+    end
     
   end
 
-  resources :comments, only: [:index, :create]
-get '/comments/new/(:parent_id)', to: 'comments#new', as: :new_comment
+  
 
 
   
