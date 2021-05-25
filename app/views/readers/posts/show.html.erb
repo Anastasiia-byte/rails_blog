@@ -2,14 +2,14 @@
     <div class='col-lg-10 offset-lg-1'>
         <div class="card border-danger mb-3" >
             <% if @post.header_image.present? %>
-                <div class="header-image" style="background-image: url(<%= url_for(@post.header_image) %>);"></div>
+                <div class="header-img"><%= image_tag(@post.header_image, width: '100%') %></div>
             <% end %>
             <div class="card-body p-4 d-flex flex-column">
                 <h1 class="card-title"><%= @post.title %></h5>
                 
                 <% @post.elements.each do |element| %>
                         <% if element.image? %>
-                            <%= image_path(element.image) %>
+                            <%= image_tag(element.image) %>
                         <% else %>
                             <%= element.content %>
                         <% end %>
