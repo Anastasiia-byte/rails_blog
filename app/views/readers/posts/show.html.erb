@@ -1,8 +1,8 @@
-<div class='row'>
-    <div class='col-lg-10 offset-lg-1'>
+<div class='row mr-0 justify-content-center'>
+    <div class='col-lg-7 '>
         <div class="card border-danger mb-3" >
             <% if @post.header_image.present? %>
-                <div class="header-img"><%= rails_blob_url(@post.header_image, width: '100%') %></div>
+                <%= image_tag @post.header_image, width: '100%', height: '90%' %></div>
             <% end %>
             <div class="card-body p-4 d-flex flex-column">
                 <h1 class="card-title"><%= @post.title %></h5>
@@ -20,7 +20,7 @@
     </div>
 </div>
 
-<div class='row'>
+<div class='row mr-0 justify-content-center'>
     <% if author_signed_in? %>
         <% pre_like = @post.likes.find { |like| like.author_id == current_author.id} %>
         <% if pre_like %>
@@ -37,8 +37,8 @@
 
 
 
-<div class='row'>
-    <div class='col-lg-10 comment-section'>
+<div class='row mr-0 justify-content-center'>
+    <div class='col-lg-5 comment-section'>
         
         <%= render 'comments/comment' %>
         <h5 class='mt-4'>Comments</h5>
