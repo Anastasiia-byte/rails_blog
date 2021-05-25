@@ -1,0 +1,15 @@
+current directory: /home/anastasiia/універ/4semestr/pvi/ruby_blog/vendor/bundle/ruby/3.0.0/gems/websocket-driver-0.7.3/ext/websocket-driver
+/home/anastasiia/.rvm/rubies/ruby-3.0.0/bin/ruby -I /home/anastasiia/.rvm/rubies/ruby-3.0.0/lib/ruby/3.0.0 -r ./siteconf20210525-24263-vrlmo3.rb extconf.rb
+creating Makefile
+
+current directory: /home/anastasiia/універ/4semestr/pvi/ruby_blog/vendor/bundle/ruby/3.0.0/gems/websocket-driver-0.7.3/ext/websocket-driver
+make "DESTDIR=" clean
+
+current directory: /home/anastasiia/універ/4semestr/pvi/ruby_blog/vendor/bundle/ruby/3.0.0/gems/websocket-driver-0.7.3/ext/websocket-driver
+make "DESTDIR="
+compiling websocket_mask.c
+linking shared-object websocket_mask.so
+
+current directory: /home/anastasiia/універ/4semestr/pvi/ruby_blog/vendor/bundle/ruby/3.0.0/gems/websocket-driver-0.7.3/ext/websocket-driver
+make "DESTDIR=" install
+/usr/bin/install -m 0755 websocket_mask.so ./.gem.20210525-24263-g876hu
