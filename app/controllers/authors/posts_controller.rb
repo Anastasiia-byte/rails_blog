@@ -6,7 +6,7 @@ module Authors
     # GET /posts
     def index
       @page = params.fetch(:page, 0).to_i
-      @posts = Post.most_recently_published.paginate(:page => params[:page], :per_page => 3)
+      @posts = Post.most_recently_published.paginate(:page => params[:page], :per_page => 3).includes(:likes)
     end
 
 
@@ -52,7 +52,7 @@ module Authors
     private
       # Use callbacks to share common setup or constraints between actions.
       def set_post
-        @post = current_author.posts.find(params[:id]).includes(:likes)
+        @post = current_author.posts.find(params[:id])
       end
   
       # Only allow a list of trusted parameters through.
