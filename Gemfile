@@ -34,8 +34,6 @@ gem 'will_paginate', '~>3.3.0'
 gem 'will_paginate-bootstrap4'
 gem 'acts-as-taggable-on', '~>7.0'
 
-
-
 group :production do
   gem 'pg'
 end
