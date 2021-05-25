@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   acts_as_taggable_on :tags
+  acts_as_taggable_on :skills, :interests
 
   belongs_to :author
   has_many :elements
