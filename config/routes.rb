@@ -20,6 +20,10 @@ Rails.application.routes.draw do
       
     end
 
+    resources :posts do
+      put 'published' => 'posts#published'
+    end
+
   end
 
   scope module: 'readers' do
