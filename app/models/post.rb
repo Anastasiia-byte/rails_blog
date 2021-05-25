@@ -12,8 +12,6 @@ class Post < ApplicationRecord
   validates_presence_of :title, :description
   # validates_length_of :description, within: 50..150
 
-  
-
   scope :published, -> do
     where(published: true)
   end
@@ -21,7 +19,4 @@ class Post < ApplicationRecord
   scope :most_recently_published, -> do
     order(publish_date: :desc)
   end  
-
-  
-
 end
