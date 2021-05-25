@@ -10,11 +10,11 @@
         </div >
         <div class='card-footer'>
             <% if @post.published? %>
-                <a href='#' class='btn btn-outline-danger btn-block' data-reflex='click->PublisherReflex#unpublish'
-                data-post-id='<%= @post.id %>'>Unpublish</a>
+                <%= link_to 'Unpublish', unpublished_post_path(@post), method: :put, class: 'btn btn-outline-danger btn-block' %>
+                
             <% else %>
-                <a href='#' class='btn btn-dark btn-block' data-reflex='click->PublisherReflex#publish'
-                data-post-id='<%= @post.id %>'>Publish</a>
+                <%= link_to 'Publish', published_post_path(@post), method: :put, class: 'btn btn-dark btn-block' %>
+                
             <% end %>
         </div>
     </div>

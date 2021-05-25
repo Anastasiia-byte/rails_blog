@@ -21,7 +21,8 @@ Rails.application.routes.draw do
     end
 
     resources :posts do
-      put 'published' => 'posts#published'
+      put 'published' => 'posts#published', on: :member, as: :published
+      put 'unpublished' => 'posts#unpublished', on: :member, as: :unpublished
     end
 
   end

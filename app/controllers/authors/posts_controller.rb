@@ -1,7 +1,7 @@
 module Authors
   class PostsController < AuthorsController
     POSTS_PER_PAGE = 6
-    before_action :set_post, only: [:edit, :update, :destroy]
+    before_action :set_post, only: [:edit, :update, :destroy, :published, :unpublished]
   
     # GET /posts
     def index
@@ -18,6 +18,16 @@ module Authors
     # GET /posts/1/edit
     def edit
       @element = @post.elements.build
+    end
+
+    def published
+      @post.update(published: true, publish_date: Time.now)
+      redirect_to root_path
+    end
+
+    def unpublished
+      @post.update(published: false, publish_date: nil)
+      redirect_to root_path
     end
   
     # POST /posts
