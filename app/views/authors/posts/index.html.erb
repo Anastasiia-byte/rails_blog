@@ -11,7 +11,7 @@
         <div class="row">
           <div class="col-md-3">
             <% if post.header_image.present? %>
-              <div class="header-img" style="background-image: url(<%= url_for(post.header_image) %>);"></div>
+              <div class="header-img" style="background-image: url(<%= image_path(post.header_image) %>);"></div>
             <% end %>
           </div>
           <div class="col-md-9">

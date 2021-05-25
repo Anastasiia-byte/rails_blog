@@ -9,7 +9,7 @@
                 
                 <% @post.elements.each do |element| %>
                         <% if element.image? %>
-                            <%= image_tag(element.image) %>
+                            <%= image_path(element.image) %>
                         <% else %>
                             <%= element.content %>
                         <% end %>
