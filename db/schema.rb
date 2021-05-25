@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_24_200840) do
+ActiveRecord::Schema.define(version: 2021_05_25_063830) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -93,6 +93,15 @@ ActiveRecord::Schema.define(version: 2021_05_24_200840) do
     t.index ["post_id"], name: "index_elements_on_post_id"
   end
 
+  create_table "likes", force: :cascade do |t|
+    t.integer "post_id", null: false
+    t.integer "author_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["author_id"], name: "index_likes_on_author_id"
+    t.index ["post_id"], name: "index_likes_on_post_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -136,6 +145,8 @@ ActiveRecord::Schema.define(version: 2021_05_24_200840) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "posts"
   add_foreign_key "elements", "posts"
+  add_foreign_key "likes", "authors"
+  add_foreign_key "likes", "posts"
   add_foreign_key "posts", "authors"
   add_foreign_key "taggings", "tags"
 end

@@ -19,6 +19,8 @@ require("@rails/actiontext")
 import Sortable from 'sortablejs';
 
 import '../stylesheet/application';
+import "@fortawesome/fontawesome-free/js/all";
+
 
 document.addEventListener('turbolinks:load', () => {
     document.addEventListener('click', () => {
@@ -46,3 +48,5 @@ document.addEventListener('turbolinks:load', () => {
   
 
 import "controllers"
+
+

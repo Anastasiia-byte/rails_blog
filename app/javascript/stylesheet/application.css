@@ -4,6 +4,9 @@
 @import url('./readers/index.css');
 @import url('./readers/show.css');
 
+@import '@fortawesome/fontawesome-free';
+
+
 .content :hover{
     color:rgba(197, 152, 39, 0.788);
     border-radius: 10px;
@@ -36,6 +39,32 @@
 .page-item .page-link{
     color: #977100
 }
+
+#like_button{
+    width: 100px;
+    border-radius: 4px;
+    border-width: 1px;
+    background-color: white;
+}
+
+#like_button:hover{
+    background-color: rgb(207, 1, 1);
+    border-color: red;
+    color: white
+}
+
+#unlike_button{
+    width: 100px;
+    border-radius: 4px;
+    border-width: 1px;
+}
+
+#unlike_button:hover{
+    background-color: white;
+    color: black;
+    border-color: black;
+}
+
 
 
 

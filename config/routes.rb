@@ -11,19 +11,29 @@ Rails.application.routes.draw do
       resources :elements
     end
 
-  end
+    resources :posts do
+      resources :likes
+    end
 
-  scope module: 'readers' do
     resources :posts do
       resources :comments 
       
     end
+
+  end
+
+  scope module: 'readers' do
+    
     resources :posts do
       resources :tags
       
     end
+
+
     
   end
+
+
 
   
 

@@ -1,6 +1,6 @@
 
-module Readers
-    class CommentsController < ApplicationController
+module Authors
+    class CommentsController < AuthorsController
         def create
             @post = Post.published.find_by_id(params[:post_id])
             @comment = @post.comments.create(comment_params)
