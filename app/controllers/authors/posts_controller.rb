@@ -6,7 +6,7 @@ module Authors
     # GET /posts
     def index
       @page = params.fetch(:page, 0).to_i
-      @posts = Post.most_recently_published.paginate(:page => params[:page], :per_page => 3).includes(:likes)
+      @posts = current_author.most_recently_published.paginate(:page => params[:page], :per_page => 3).includes(:likes)
     end
 
 
