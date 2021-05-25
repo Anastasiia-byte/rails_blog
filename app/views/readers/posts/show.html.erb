@@ -24,13 +24,13 @@
     <% if author_signed_in? %>
         <% pre_like = @post.likes.find { |like| like.author_id == current_author.id} %>
         <% if pre_like %>
-            <%= button_to 'Unlike', post_like_path(@post, pre_like), method: :delete, class: ' mr-4 form-controll btn-danger', id: 'unlike_button' %>
+            <%= button_to 'Unlike', post_like_path(@post, pre_like), method: :delete, class: 'ml-3 form-controll btn-danger', id: 'unlike_button' %>
         <% else %>
-        <%= button_to 'Like', post_likes_path(@post), method: :post, class: ' ml-3 form-controll ', id: 'like_button' %>
+        <%= button_to 'Like', post_likes_path(@post), method: :post, class: 'ml-3 form-controll ', id: 'like_button' %>
         <% end %>
     <% end %>
 
-    <p class='text_likes mr-4'>
+    <p class='text_likes ml-3'>
         <%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes' %>
     </p>
 </div>
