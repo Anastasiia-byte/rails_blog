@@ -22,7 +22,7 @@
     <div class='col-md-6 col-lg-4'>
         <div class="card border-danger mb-3 post-card" >
             <% if post.header_image.present? %>
-                <div class="header-image" style="background-image: url(<%= rails_blob_path(post.header_image, only_path: true) %>);"></div>
+                <div class="header-image"><%= rails_blob_path(post.header_image, only_path: true) %></div>
             <% end %>
             <div class="card-body d-flex flex-column ">
                     <span class='badge text-right mr-2'>
